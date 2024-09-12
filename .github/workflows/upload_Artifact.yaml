@@ -1,0 +1,31 @@
+name: Build Angular app
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+    job1:
+      name: job1
+      runs-on: ubuntu-latest
+
+      steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup NodeJs
+        uses: actions/setup-node@v4
+        with:
+         node-version: 18.x
+
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifact
+          path: dist
