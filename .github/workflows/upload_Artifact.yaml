@@ -19,10 +19,13 @@ jobs:
 
 
       - name: Install Dependencies
-        run: npm install
+        run: npm i -g -D supertest mocha chai
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm run test
 
-      - name: Build
-        run: npm run build
+    #   - name: Build
+    #     run: npm run build
 
       - name: upload build artifact
         uses: actions/upload-artifact@v4
