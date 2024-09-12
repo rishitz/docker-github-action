@@ -1,0 +1,20 @@
+name: Build Angular app
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: dawidd6/action-download-artifact@v6
+        with: 
+          name: build-artifact
+          path: artifact  #create this dir and add artifact in this dir.
+          github_token: ${{github.token}}  # Default token of github bz workflows are in same repo.
+          repo:  ${{github.repository}}   # Default repo. name
+          run_number: 27
+          
