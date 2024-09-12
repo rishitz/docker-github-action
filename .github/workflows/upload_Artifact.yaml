@@ -20,7 +20,7 @@ jobs:
 
       - name: Install Dependencies
         run: npm i -g -D supertest mocha chai
-      - run: npm ci
+    #   - run: npm ci
       - run: npm run build --if-present
       - run: npm run test
 
