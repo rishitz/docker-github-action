@@ -1,8 +1,14 @@
 name: Job Output
 on:
-  push:
-    branches:
-      - master
+    workflow_dispatch:
+#   push:
+#     branches:
+#       - master
+        inputs:
+            environment: 
+             description: 'Enter name'
+             required: true
+             default: 'rishit'
 jobs:
     job1:
       name: job1
@@ -12,7 +18,7 @@ jobs:
       steps:
         - name: set output
           id: set-output
-          run: echo "name=Rishit" >> $GITHUB_OUTPUT
+          run: echo "name=${{github.event.inputs.environment}}" >> $GITHUB_OUTPUT
 
         - name: Access output
           run: echo "value is ${{steps.set-output.outputs.name}}"

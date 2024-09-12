@@ -1,4 +1,4 @@
-name: Build Angular app
+name: Download Angular app
 
 on:
   push:
